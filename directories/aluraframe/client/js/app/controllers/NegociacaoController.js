@@ -1,6 +1,5 @@
 class NegociacaoController
 {
-
   constructor()
   {
     let $ = document.querySelector.bind(document); // o metodo bind, faz com o que o document seja colocado de lado, para o $ "substituir" ele, e essa linha, torne possivel;
@@ -13,12 +12,13 @@ class NegociacaoController
   {
     event.preventDefault();
 
-    let data = new Date (this._inputData.value.split('-'));
-    console.log(data);
-    // adicionar a negociacao em uma lista hehe
+    let negociacao = new Negociacao(
+      DateHelper.textoParaData(this._inputData.value),
+      this._inputQuantidade.value,
+      this._inputValor.value
+    );
 
+    console.log(negociacao);
+    console.log(DateHelper.dataParaTexto(negociacao.data));
   }
-
-
-
 }
